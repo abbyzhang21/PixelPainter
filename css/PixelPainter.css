@@ -3,5 +3,16 @@ body {
     
 }
 
-/* #colorSwatch {
-} */
+#canvas {
+    height: 800px;
+    width: 800px;
+}
+.canvasBox {
+    height: 35px;
+    width: 35px;
+    border: 1px solid black;
+    display: inline-block;
+}
+#canvasC_1 {
+    border: 2px, solid,red;
+}
