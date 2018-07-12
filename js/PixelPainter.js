@@ -32,7 +32,7 @@ function eraseElem(){
         this.style.backgroundColor = 'transparent';
     }
 }
-//clear button
+//create clear button
 var buttonC = document.createElement('button');
 buttonC.id = 'buttonCl';
 buttonC.className = 'btn';
@@ -40,8 +40,14 @@ buttonC.type = 'button';
 buttonC.innerHTML = 'Clear';
 pixelPainter.appendChild(buttonC);
 
-
-
+//clear button function
+buttonCl.addEventListener('click', clearElem);
+function clearElem(){
+    for(var i = 0; i < singleC.length; i++){
+        singleC[i].style.backgroundColor = 'transparent';
+        
+    }
+}
 
 //create canvas
 var canvasDiv = document.createElement('div');
