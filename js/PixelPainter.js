@@ -13,6 +13,36 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 // swatchDiv.appendChild(image);
 // document.getElementById('pixelPainter').appendChild(swatchDiv);
 
+//create erase button 
+var buttonE = document.createElement('button');
+buttonE.id = 'buttonEr';
+buttonE.className = 'btn';
+buttonE.type = 'button';
+buttonE.innerHTML = 'Erase';
+pixelPainter.appendChild(buttonE);
+
+//erase button 
+buttonEr.addEventListener('click', eraseElem);
+function eraseElem(){
+    for(var i = 0; i < singleC.length; i++){
+        singleC[i].addEventListener('click', eraseIt);
+        
+    }
+    function eraseIt(){
+        this.style.backgroundColor = 'transparent';
+    }
+}
+//clear button
+var buttonC = document.createElement('button');
+buttonC.id = 'buttonCl';
+buttonC.className = 'btn';
+buttonC.type = 'button';
+buttonC.innerHTML = 'Clear';
+pixelPainter.appendChild(buttonC);
+
+
+
+
 //create canvas
 var canvasDiv = document.createElement('div');
 canvasDiv.id = 'canvas';
@@ -41,6 +71,8 @@ var singleC = document.getElementsByClassName('canvasBox');
 for(var i = 0; i < singleC.length; i++){
     singleC[i].addEventListener('click', addColor);
 }
+
+// click and change color
 function addColor(){
     this.style.backgroundColor = 'black';
 }

@@ -16,3 +16,9 @@ body {
 #canvasC_1 {
     border: 2px, solid,red;
 }
+
+.btn{
+    background-color: blueviolet;
+    font-size:  20px;
+    padding: 10px;
+}
