@@ -1,4 +1,4 @@
-console.log('Sanite Check!');
+var clicked = '';
 //add viewport to head section
 var meta = document.createElement('meta');
 meta.name = 'viewport';
@@ -6,13 +6,46 @@ meta.contnet = 'width=device-width, initial-scale=1.0';
 document.getElementsByTagName('head')[0].appendChild(meta);
 
 //create div for color swatch
-// var swatchDiv = document.createElement('div');
-// swatchDiv.id = 'colorSwatch';
-// var image = document.createElement('img');
-// image.src ='http://www.waldighoffen.com/accueil/photographies-waldighoffen/cliparts-et-dessins/palette-de-couleurs/image_preview';
-// swatchDiv.appendChild(image);
-// document.getElementById('pixelPainter').appendChild(swatchDiv);
+var swatchDiv = document.createElement('div');
+swatchDiv.id = 'colorSwatch';
 
+//create individual box
+function colorBox(num){
+    for (var i = 0; i < num; i++){
+        var colorB = document.createElement('div');
+        colorB.className = 'colorB';
+        colorB.style.backgroundColor = getRandomColor();
+        colorSwatch.appendChild(colorB);
+    }
+}
+pixelPainter.appendChild(swatchDiv);
+colorBox(200);
+
+//create random color
+function getRandomColor(){
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for(var i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random()*16)];
+    }
+    return color;
+}
+
+//pick color
+    var myColor = document.getElementsByClassName('colorB');
+    for(var i = 0; i < myColor.length; i++){
+        myColor[i].addEventListener('click', showColor);
+    }
+
+
+//show Color
+var myC = '';
+function showColor(){
+    // console.log(this.style.backgroundColor); 
+    myC = this.style.backgroundColor;
+    
+    
+}
 //create erase button 
 var buttonE = document.createElement('button');
 buttonE.id = 'buttonEr';
@@ -25,8 +58,7 @@ pixelPainter.appendChild(buttonE);
 buttonEr.addEventListener('click', eraseElem);
 function eraseElem(){
     for(var i = 0; i < singleC.length; i++){
-        singleC[i].addEventListener('click', eraseIt);
-        
+       singleC[i].addEventListener('click', eraseIt);
     }
     function eraseIt(){
         this.style.backgroundColor = 'transparent';
@@ -44,8 +76,7 @@ pixelPainter.appendChild(buttonC);
 buttonCl.addEventListener('click', clearElem);
 function clearElem(){
     for(var i = 0; i < singleC.length; i++){
-        singleC[i].style.backgroundColor = 'transparent';
-        
+        singleC[i].style.backgroundColor = 'transparent';   
     }
 }
 
@@ -59,18 +90,16 @@ function myCanvas(height, width){
        var columnBox = document.createElement('div');
        columnBox.className = 'canvasBox';
        canvas.appendChild(columnBox);
-       columnBox.innerHTML ='w';
        for(j = 0; j < width; j++){
            var rowBox = document.createElement('div');
            rowBox.className = 'canvasBox';
            canvas.appendChild(rowBox);
-           rowBox.innerHTML = 'f';
         
        }
     }
     
 }
-myCanvas(20, 20);
+myCanvas(16, 16);
 
 //select each canvas
 var singleC = document.getElementsByClassName('canvasBox');
@@ -79,6 +108,8 @@ for(var i = 0; i < singleC.length; i++){
 }
 
 // click and change color
+
 function addColor(){
-    this.style.backgroundColor = 'black';
+    console.log(this.position);
+     this.style.backgroundColor = myC;
 }

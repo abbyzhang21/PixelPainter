@@ -3,22 +3,32 @@ body {
     
 }
 
+#colorSwatch{
+    display: inline-block;
+    width: 400px;
+}
 #canvas {
-    height: 800px;
-    width: 800px;
+    height: 600px;
+    width: 600px;
+    margin-top: 10px;
+    display: inline-block;
 }
 .canvasBox {
     height: 35px;
     width: 35px;
-    border: 1px solid black;
+    border: 0.5px solid black;
     display: inline-block;
-}
-#canvasC_1 {
-    border: 2px, solid,red;
 }
 
 .btn{
-    background-color: blueviolet;
     font-size:  20px;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.colorB{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
 }
